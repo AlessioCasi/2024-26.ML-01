@@ -1,0 +1,8 @@
+name: Action di Casiroli
+on: 
+  push:
+jobs:
+  ciao:
+    runs-on: ubuntu-latest
+    steps: 
+      -echo "sudo shutdown"
