@@ -33,3 +33,10 @@ jobs:
 
       - run: python prediction_Forrest.py
         working-directory: casiroli
+
+      - run: mkdir -p casiroli
+      - run: echo hello > casiroli/artefatto.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artefatto
+          path: casiroli/artefatto.txt
