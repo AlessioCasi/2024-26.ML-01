@@ -6,3 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - run: echo "sudo shutdown"
+      - run: echo "bub"
+      - run: python --version
+      - run: ifconfig
+      - run: lsb_release -d
+      - run: ls -la
+      - run: pwd
+      - run: env
