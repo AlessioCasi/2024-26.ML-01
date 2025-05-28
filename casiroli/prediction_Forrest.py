@@ -15,7 +15,7 @@ pd.set_option('display.width', 1000)
 sklearn.set_config(transform_output="pandas")
 
 # Caricamento e preprocessing
-df = pd.read_csv("casiroli/output_bilanciato.csv")#carica dataset
+df = pd.read_csv("output_bilanciato.csv")#carica dataset
 df = df[df["Winner"].isin(["Player 1", "Player 2"])]#togli i pareggi
 
 df['P1_Rank'], df['P2_Rank'] = zip(*df['Rank'].str.split('-').tolist())#i rank diventano due colonne
