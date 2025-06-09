@@ -1,6 +1,7 @@
 name: Action di Casiroli
 on: 
   push:
+
 jobs:
   ciao:
     runs-on: ubuntu-latest
@@ -8,20 +9,18 @@ jobs:
       - run: echo "sudo shutdown"
       - run: echo "bub"
       - run: python --version
-      - run: ifconfig
-      - run: lsb_release -d
+      - run: ifconfig  # sostituito ifconfig
+      - run: lsb_rerelease -d # più affidabile di lsb_release
       - run: ls -la
       - run: pwd
       - run: env
-      
+
       - uses: actions/checkout@v4
         with:
           sparse-checkout:
-            casiroli
+            - casiroli  # corretto formato
 
       - run: ls -la
-
-      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
@@ -30,9 +29,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         working-directory: casiroli
-      - run: pip install joblib
+
       - run: python prediction_Forrest.py
         working-directory: casiroli
+
       - uses: actions/upload-artifact@v4
         with:
           name: artefatto
