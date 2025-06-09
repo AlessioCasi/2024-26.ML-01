@@ -7,7 +7,7 @@ from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 import sklearn
 import time
-
+import joblib
 # Impostazioni
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
@@ -84,3 +84,12 @@ importances = grid_search.best_estimator_.named_steps['classifier'].feature_impo
 feature_names = grid_search.best_estimator_.named_steps['encoder'].get_feature_names_out()
 feat_imp = pd.Series(importances, index=feature_names).sort_values(ascending=False)
 print(feat_imp.head(10))
+
+
+
+# Feature importance
+importances = grid_search.best_estimator_.named_steps['classifier'].feature_importances_
+feature_names = grid_search.best_estimator_.named_steps['encoder'].get_feature_names_out()
+feat_imp = pd.Series(importances, index=feature_names).sort_values(ascending=False)
+print(feat_imp.head(10))
+joblib.dump(grid_search.best_estimator_, "casiroli/artefatto.joblib")
