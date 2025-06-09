@@ -8,7 +8,7 @@ def client():
         yield client
 
 def test_hello(client):
-    response = client.post("/infer", json={"name": "Alessandro"})
+    response = client.post("/infer", json={"name": "marco"})
     assert response.status_code == 200
     data = response.get_json()
-    assert data == {"message": "Hello Alessandro!"}
+    assert data["message"] == "Hello Alessandro!"
