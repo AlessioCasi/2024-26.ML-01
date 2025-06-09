@@ -84,3 +84,5 @@ importances = grid_search.best_estimator_.named_steps['classifier'].feature_impo
 feature_names = grid_search.best_estimator_.named_steps['encoder'].get_feature_names_out()
 feat_imp = pd.Series(importances, index=feature_names).sort_values(ascending=False)
 print(feat_imp.head(10))
+
+joblib.dump(grid_search.best_estimator_, "artefatto.joblib")
