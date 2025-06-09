@@ -38,3 +38,4 @@ jobs:
           name: artefatto
           path: casiroli/artefatto.joblib
       - run: pytest
+        working-directory: casiroli
