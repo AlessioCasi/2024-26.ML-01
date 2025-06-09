@@ -9,10 +9,10 @@ def client():
 
 def test_hello(client):
     params={"Rank":"platinum-platinum",
-            "Player 1":"Marth",
-            "Player 2":"Fox",
-            "Stage":"Pokémon Stadium",
-            "Winner":"Player 1",
+            "Player 1":"Fox",
+            "Player 2":"Roy",
+            "Stage":"Yoshi's Story",
+            "Winner":"Player 2",
             "Rank_Difference":0,
             "P1_Rank_Value": 2,
             "P2_Rank_Value": 2}
@@ -20,4 +20,4 @@ def test_hello(client):
     assert response.status_code == 200
     data = response.get_json()
     assert data["message"] == "Hello Alessandro!"
-    assert data["inference"]== ["Player 1"]
+    assert data["inference"]== ["Player 2"]
